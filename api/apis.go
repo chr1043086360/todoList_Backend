@@ -13,6 +13,7 @@ import (
 	// "time"
 
 	// "log"
+	"io"
 	"net/http"
 	"os"
 	"project2019/middleware"
@@ -30,7 +31,7 @@ func Api() *gin.Engine {
 	r := gin.Default()
 
 	// !生产模式配置
-	// gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
 
 	// *无中间件启动
 	// r := gin.New()
@@ -56,9 +57,9 @@ func Api() *gin.Engine {
 	// gin.DisableConsoleColor()
 
 	// *创建记录日志的文件
-	// f, _ := os.Create("gin.log")
+	f, _ := os.Create("gin.log")
 	// 标准输出
-	// gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 
 	// 设置静态文件访问路径
 	r.Static("/static", "./static")

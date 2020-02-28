@@ -16,6 +16,7 @@ import (
 
 	// "project2019/kafka"
 
+	"project2019/cache"
 	model "project2019/models"
 
 	//"github.com/gomodule/redigo/redis"
@@ -37,7 +38,7 @@ func Init() {
 	// cache.ConnRedis()
 
 	// ་建立redis连接池
-	// cache.RedisPool()
+	cache.RedisPool()
 
 	// 连接ETCD
 	// etcd.EtcdInit()
