@@ -63,6 +63,13 @@ func Login(c *gin.Context){
 					Msg:   "登录成功",
 					Error: "",
 				})
+			}else {
+				c.JSON(200, serializer.Response{
+					Code:  200,
+					Data:  40001,
+					Msg:   "账号密码错误",
+					Error: "",
+				})
 			}
 		}
 	}
