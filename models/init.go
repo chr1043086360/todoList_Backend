@@ -31,4 +31,5 @@ func Datebase(connString string) {
 func migration() {
 	// 自动迁移模式
 	DB.AutoMigrate(&TodoList{})
+	DB.AutoMigrate(&User{})
 }

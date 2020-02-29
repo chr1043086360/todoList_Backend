@@ -116,6 +116,12 @@ func Api() *gin.Engine {
 		// 测试接口
 		v3.GET("/", todolist.Index)
 
+		// 注册接口
+		v3.POST("/register", todolist.Register)
+
+		// 登录接口
+		v3.POST("/login", todolist.Login)
+
 		// 添加待办事项
 		v3.POST("/todo", todolist.CreateTodoList)
 

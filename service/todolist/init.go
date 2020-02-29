@@ -11,3 +11,12 @@ type Todo struct {
 	Status bool   `json:"status" form:"status"`
 	Info   string `json:"info" form:"info"`
 }
+
+type User struct {
+	Id     uint   `json:"id"`
+	Username  string `json:"username" form:"username" binding:"required,max=20"`
+	Password string   `json:"password" form:"password" binding:"required,max=20"`
+	Token   string `json:"token" form:"token"`
+	Nickname string `json:"nickname" form:"nickname"`
+	Status string `json:"status" form:"status"`
+}

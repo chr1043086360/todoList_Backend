@@ -4,10 +4,11 @@ import "github.com/jinzhu/gorm"
 
 type User struct {
 	gorm.Model
-	Username string
-	PasswordDigest string
+	Username string `gorm:"unique; index:username; not null"`
+	Password string
 	Nickname string
 	Status string
+	Token   string
 }
 
 
