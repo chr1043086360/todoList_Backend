@@ -24,20 +24,6 @@ func Login(c *gin.Context){
 		})
 		fmt.Println(err)
 	}
-	//fmt.Println(user.Username)
-	//fmt.Println(user.Password)
-
-
-	// 判断是否有cookie, 有cookie不用登录
-	//ck, _ := c.Cookie("token")
-	//if ck == user.Username {
-	//	c.JSON(200, serializer.Response{
-	//		Code:  200,
-	//		Data:  ck,
-	//		Msg:   "您已经登录",
-	//		Error: "",
-	//	})
-	//}
 
 	var userModel models.User
 	// 在数据库中修改
@@ -55,7 +41,21 @@ func Login(c *gin.Context){
 		if user.Username == userModel.Username {
 			if user.Password == userModel.Password{
 
-				c.SetCookie("token", userModel.Username, 300,"/","localhost",false,true)
+				// 将用户名加上服务器id存在用户表的token中
+
+				err9 := models.DB.Model(&userModel).Where("username = ?", user.Username).Update("token",user.Username+"666").Error
+
+				if err9 != nil {
+					c.JSON(500, serializer.Response{
+						Code:  50001,
+						Data:  50001,
+						Msg:   "更新token错误",
+						Error: err9.Error(),
+					})
+				}else{
+				// 设置缓存用于登录
+				c.SetCookie("token", userModel.Token, 300,"/","localhost",false,true)
+
 
 				c.JSON(200, serializer.Response{
 					Code:  200,
@@ -63,7 +63,8 @@ func Login(c *gin.Context){
 					Msg:   "登录成功",
 					Error: "",
 				})
-			}else {
+				}
+			} else {
 				c.JSON(200, serializer.Response{
 					Code:  200,
 					Data:  40001,

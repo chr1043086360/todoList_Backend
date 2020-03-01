@@ -27,20 +27,7 @@ func Change(c *gin.Context){
 		})
 		fmt.Println(err)
 	}
-	//fmt.Println(todo.Status)
 
-
-	//switch todo.Status {
-	//case true:
-	//	flag = 1
-	//case false:
-	//	flag = 0
-	//}
-
-
-	// 在数据库中修改
-	//fuck := models.DB.Where("id = ?", id).First(&todo)
-	//fmt.Println(fuck.Value)
 	err2:= models.DB.Model(&todo).Where("id = ?", id).Update("status",todo.Status).Error
 
 	// 返回状态码

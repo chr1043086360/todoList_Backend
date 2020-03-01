@@ -136,6 +136,9 @@ func Api() *gin.Engine {
 
 		// 删除待办事项
 		v3.DELETE("/todo/:id", todolist.Delete)
+
+		// 外键通过username查询文章
+		v3.GET("/fk", todolist.FkSearch)
 	}
 
 	return r

@@ -22,6 +22,7 @@ func Datebase(connString string) {
 	db.DB().SetMaxIdleConns(50)
 	db.DB().SetMaxOpenConns(100)
 	db.DB().SetConnMaxLifetime(time.Second * 30)
+	db.Model(TodoList{}).AddForeignKey("refer", "users(username)", "RESTRICT", "RESTRICT")
 	DB = db
 
 	migration()
