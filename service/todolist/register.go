@@ -2,11 +2,11 @@ package todolist
 
 import (
 	"fmt"
+	"github.com/jinzhu/gorm"
 	"project2019/models"
 	"project2019/serializer"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 )
 
 // 创建待办事项
@@ -21,36 +21,36 @@ func Register(c *gin.Context) {
 			Error: err.Error(),
 		})
 		fmt.Println(err)
+	} else{
+		// 绑定模型
+
+		userModel := models.User{
+			Model:    gorm.Model{},
+			Username: user.Username,
+			Password: user.Password,
+			Nickname: user.Nickname,
+			Status:   user.Status,
+			Token:    user.Token,
+		}
+
+		// 添加到数据库
+		err2 := models.DB.Create(&userModel).Error
+
+		if err2 != nil {
+			c.JSON(50001, serializer.Response{
+				Code:  50001,
+				Data:  nil,
+				Msg:   "该用户名已经有人注册",
+				Error: err2.Error(),
+			})
+			fmt.Println(err2)
+		} else {
+			c.JSON(200, serializer.Response{
+				Code:  200,
+				Data:  userModel.Username,
+				Msg:   "注册成功",
+				Error: "",
+			})
+		}
 	}
-	// 绑定模型
-
-	userModel := models.User{
-		Model:    gorm.Model{},
-		Username: user.Username,
-		Password: user.Password,
-		Nickname: user.Nickname,
-		Status:   user.Status,
-		Token:    user.Token,
-	}
-
-	// 添加到数据库
-	err2 := models.DB.Create(&userModel).Error
-
-	if err2 != nil {
-		c.JSON(50001, serializer.Response{
-			Code:  50001,
-			Data:  nil,
-			Msg:   "保存失败",
-			Error: err2.Error(),
-		})
-		fmt.Println(err2)
-	} else {
-		c.JSON(200, serializer.Response{
-			Code:  200,
-			Data:  userModel.Username,
-			Msg:   "注册成功",
-			Error: "",
-		})
-	}
-
 }

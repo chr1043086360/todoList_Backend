@@ -54,7 +54,7 @@ func Login(c *gin.Context){
 					})
 				}else{
 				// 设置缓存用于登录
-				c.SetCookie("token", userModel.Token, 300,"/","localhost",false,true)
+				c.SetCookie("token", userModel.Token, 500000,"/","localhost",false,true)
 
 
 				c.JSON(200, serializer.Response{

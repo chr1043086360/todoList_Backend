@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69ac5e64-09d6-423b-9e2f-5144d3a375e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/todolist/fkSearch.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/todolist/ifLogin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/todolist/logout.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/apis.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/apis.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/todoList.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/todoList.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/todolist/changeList.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/todolist/changeList.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/todolist/createList.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/todolist/createList.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/todolist/listAll.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/todolist/listAll.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/todolist/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/todolist/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/todolist/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/todolist/register.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

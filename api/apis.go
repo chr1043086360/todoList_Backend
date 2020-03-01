@@ -122,6 +122,9 @@ func Api() *gin.Engine {
 		// 登录接口
 		v3.POST("/login", todolist.Login)
 
+		// 登出接口
+		v3.GET("/logout", todolist.Logout)
+
 		// 添加待办事项
 		v3.POST("/todo", todolist.CreateTodoList)
 
