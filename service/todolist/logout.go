@@ -18,7 +18,7 @@ func Logout(c *gin.Context){
 		})
 	}
 	if ck != "" {
-		c.SetCookie("token", "", -1,"/","localhost",false,true)
+		c.SetCookie("token", "", -1,"/","122.51.107.26",false,true)
 		c.JSON(200, serializer.Response{
 			Code:  200,
 			Data:  200,
